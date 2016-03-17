@@ -14,6 +14,8 @@ public class Product {
 	private Date productSnapshotDate;
 
 	private String productType;
+	
+	private Money money;
 
 	public String getProductId() {
 		return productId;
