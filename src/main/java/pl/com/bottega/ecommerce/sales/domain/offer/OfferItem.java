@@ -21,15 +21,7 @@ import java.util.Date;
 public class OfferItem {
 
 	// product
-	private String productId;
-
-	private BigDecimal productPrice;
-
-	private String productName;
-
-	private Date productSnapshotDate;
-
-	private String productType;
+	Product product = new Product();
 
 	private int quantity;
 
@@ -50,17 +42,19 @@ public class OfferItem {
 	public OfferItem(String productId, BigDecimal productPrice, String productName,
 			Date productSnapshotDate, String productType, int quantity,
 			BigDecimal discount, String discountCause) {
-		this.productId = productId;
-		this.productPrice = productPrice;
-		this.productName = productName;
-		this.productSnapshotDate = productSnapshotDate;
-		this.productType = productType;
+		
+		product.setProductId( productId);
+		product.setProductPrice(productPrice); 
+		product.setProductName(productName) ;
+		product.setProductSnapshotDate(productSnapshotDate);
+		product.setProductType(productType);
 
 		this.quantity = quantity;
 		this.discount = discount;
 		this.discountCause = discountCause;
 
 		BigDecimal discountValue = new BigDecimal(0);
+		
 		if (discount != null)
 			discountValue = discountValue.subtract(discount);
 
@@ -69,23 +63,23 @@ public class OfferItem {
 	}
 
 	public String getProductId() {
-		return productId;
+		return product.getProductId();
 	}
 	
 	public BigDecimal getProductPrice() {
-		return productPrice;
+		return product.getProductPrice();
 	}
 	
 	public String getProductName() {
-		return productName;
+		return product.getProductName();
 	}
 	
 	public Date getProductSnapshotDate() {
-		return productSnapshotDate;
+		return product.getProductSnapshotDate();
 	}
 	
 	public String getProductType() {
-		return productType;
+		return product.getProductType();
 	}
 
 	public BigDecimal getTotalCost() {
@@ -112,57 +106,83 @@ public class OfferItem {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		
 		result = prime * result
 				+ ((discount == null) ? 0 : discount.hashCode());
 		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
 		result = prime * result + ((productPrice == null) ? 0 : productPrice.hashCode());
 		result = prime * result
 				+ ((productId == null) ? 0 : productId.hashCode());
+		
 		result = prime * result + ((productType == null) ? 0 : productType.hashCode());
 		result = prime * result + quantity;
 		result = prime * result
 				+ ((totalCost == null) ? 0 : totalCost.hashCode());
+		
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
+		
 		if (obj == null)
 			return false;
+		
 		if (getClass() != obj.getClass())
 			return false;
+		
 		OfferItem other = (OfferItem) obj;
+		
 		if (discount == null) {
+			
 			if (other.discount != null)
+				
 				return false;
 		} else if (!discount.equals(other.discount))
+			
 			return false;
 		if (productName == null) {
 			if (other.productName != null)
+				
 				return false;
+			
 		} else if (!productName.equals(other.productName))
+			
 			return false;
+		
 		if (productPrice == null) {
 			if (other.productPrice != null)
+				
 				return false;
+			
 		} else if (!productPrice.equals(other.productPrice))
+			
 			return false;
+		
 		if (productId == null) {
 			if (other.productId != null)
+				
 				return false;
 		} else if (!productId.equals(other.productId))
+			
 			return false;
 		if (productType != other.productType)
+			
 			return false;
 		if (quantity != other.quantity)
+			
 			return false;
 		if (totalCost == null) {
 			if (other.totalCost != null)
-				return false;
+				
+				return false;	
+			
 		} else if (!totalCost.equals(other.totalCost))
 			return false;
+		
 		return true;
 	}
 
@@ -177,13 +197,17 @@ public class OfferItem {
 		if (productName == null) {
 			if (other.productName != null)
 				return false;
+			
 		} else if (!productName.equals(other.productName))
 			return false;
+		
 		if (productPrice == null) {
 			if (other.productPrice != null)
 				return false;
+			
 		} else if (!productPrice.equals(other.productPrice))
 			return false;
+		
 		if (productId == null) {
 			if (other.productId != null)
 				return false;
