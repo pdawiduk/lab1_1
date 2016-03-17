@@ -109,12 +109,7 @@ public class OfferItem {
 		
 		result = prime * result
 				+ ((discount == null) ? 0 : discount.hashCode());
-		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
-		result = prime * result + ((productPrice == null) ? 0 : productPrice.hashCode());
-		result = prime * result
-				+ ((productId == null) ? 0 : productId.hashCode());
-		
-		result = prime * result + ((productType == null) ? 0 : productType.hashCode());
+		result = prime * result + product.hashCode();
 		result = prime * result + quantity;
 		result = prime * result
 				+ ((totalCost == null) ? 0 : totalCost.hashCode());
@@ -144,34 +139,9 @@ public class OfferItem {
 		} else if (!discount.equals(other.discount))
 			
 			return false;
-		if (productName == null) {
-			if (other.productName != null)
-				
-				return false;
-			
-		} else if (!productName.equals(other.productName))
-			
-			return false;
 		
-		if (productPrice == null) {
-			if (other.productPrice != null)
-				
-				return false;
-			
-		} else if (!productPrice.equals(other.productPrice))
-			
-			return false;
+		if(product.equals(obj)){
 		
-		if (productId == null) {
-			if (other.productId != null)
-				
-				return false;
-		} else if (!productId.equals(other.productId))
-			
-			return false;
-		if (productType != other.productType)
-			
-			return false;
 		if (quantity != other.quantity)
 			
 			return false;
@@ -183,7 +153,9 @@ public class OfferItem {
 		} else if (!totalCost.equals(other.totalCost))
 			return false;
 		
-		return true;
+		return true;}
+		
+		return false;
 	}
 
 	/**
@@ -194,27 +166,8 @@ public class OfferItem {
 	 * @return
 	 */
 	public boolean sameAs(OfferItem other, double delta) {
-		if (productName == null) {
-			if (other.productName != null)
-				return false;
-			
-		} else if (!productName.equals(other.productName))
-			return false;
 		
-		if (productPrice == null) {
-			if (other.productPrice != null)
-				return false;
-			
-		} else if (!productPrice.equals(other.productPrice))
-			return false;
-		
-		if (productId == null) {
-			if (other.productId != null)
-				return false;
-		} else if (!productId.equals(other.productId))
-			return false;
-		if (productType != other.productType)
-			return false;
+		if (product.sameAs(other.product)){
 
 		if (quantity != other.quantity)
 			return false;
@@ -232,6 +185,9 @@ public class OfferItem {
 		BigDecimal acceptableDelta = max.multiply(new BigDecimal(delta / 100));
 
 		return acceptableDelta.compareTo(difference) > 0;
-	}
+			}
+		
+		else return false ;
+		}
 
 }
