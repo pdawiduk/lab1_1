@@ -7,7 +7,7 @@ public class Product {
 	
 	private String productId;
 	
-	private BigDecimal productPrice;
+	private Money productPrice;
 
 	private String productName;
 
@@ -25,7 +25,7 @@ public class Product {
 		this.productId = productId;
 	}
 
-	public BigDecimal getProductPrice() {
+	public Money getProductPrice() {
 		return productPrice;
 	}
 

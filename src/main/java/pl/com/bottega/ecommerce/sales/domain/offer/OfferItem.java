@@ -25,7 +25,7 @@ public class OfferItem {
 
 	private int quantity;
 
-	private BigDecimal totalCost;
+	private Money totalCost;
 
 	private String currency;
 
