@@ -15,7 +15,7 @@ public class Product {
 
 	private String productType;
 	
-	private Money money;
+
 
 	public String getProductId() {
 		return productId;
@@ -30,7 +30,7 @@ public class Product {
 	}
 
 	public void setProductPrice(BigDecimal productPrice) {
-		this.productPrice = productPrice;
+		this.productPrice.setValue(productPrice);
 	}
 
 	public String getProductName() {

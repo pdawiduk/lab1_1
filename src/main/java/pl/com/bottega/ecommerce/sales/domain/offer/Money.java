@@ -23,6 +23,23 @@ public void setCurrency(String currency) {
 	this.currency = currency;
 }
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
- 
+		Money money = (Money) o;
+
+		if (getCurrency() != null ? !getCurrency().equals(money.getCurrency()) : money.getCurrency() != null)
+			return false;
+		return getValue() != null ? getValue().equals(money.getValue()) : money.getValue() == null;
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = getCurrency() != null ? getCurrency().hashCode() : 0;
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
+	}
 }
